@@ -27,11 +27,12 @@ a{color:inherit;text-decoration:none}
 
 .skybg{position:fixed;inset:0;z-index:-2;background:linear-gradient(180deg,#070D18 0%,#0B1322 45%,#0E1726 100%);}
 #sky{position:fixed;inset:0;z-index:-1;pointer-events:none;}
+/* sunset glow, locked to the bottom of the viewport so it holds while scrolling */
+.sunset{position:fixed;left:0;right:0;bottom:0;height:42vh;z-index:-1;pointer-events:none;
+  background:radial-gradient(75% 130% at 50% 100%, rgba(200,160,99,.30) 0%, rgba(200,160,99,.08) 40%, transparent 72%);}
 
 .hero{position:relative;min-height:92vh;display:flex;align-items:center;justify-content:center;text-align:center;overflow:hidden;}
-.hero::before{content:"";position:absolute;left:50%;bottom:-6%;transform:translateX(-50%);width:120%;height:46%;
-  background:radial-gradient(60% 100% at 50% 100%, rgba(200,160,99,.26) 0%, rgba(200,160,99,.06) 40%, transparent 70%);pointer-events:none;}
-.horizon{position:absolute;left:0;right:0;bottom:19%;height:1px;
+.horizon{position:absolute;left:0;right:0;bottom:8%;height:1px;
   background:linear-gradient(90deg,transparent,var(--brass) 20%,var(--brass-bright) 50%,var(--brass) 80%,transparent);
   box-shadow:0 0 22px 1px rgba(200,160,99,.4);opacity:.65;}
 .hero-wrap{position:relative;z-index:2;padding:5.5rem 0 7rem;}
@@ -83,6 +84,7 @@ footer a:hover{color:var(--brass);}
 <body>
 <div class="skybg"></div>
 <canvas id="sky"></canvas>
+<div class="sunset"></div>
 
 <header class="hero">
   <div class="horizon" aria-hidden="true"></div>
@@ -116,15 +118,15 @@ footer a:hover{color:var(--brass);}
           <div class="status">Available now</div>
           <div>
             <a class="title-name" href="https://acbishkey.substack.com/s/halcyon-days-the-colossus">Halcyon Days: The Colossus <span>Book one of the skyship saga</span></a>
-            <p class="title-desc">A salvaged airship, a crew that agrees on almost nothing, and a continent that would rather not be mapped. Second edition out now.</p>
+            <p class="title-desc">Six months ago the Azure Colossus rose and cracked a city of three million like an egg. Locke woke up three years short on memory and aboard the fastest ship in the sky. Banter, skyship chases, and warmth between the explosions.</p>
           </div>
         </div>
 
         <div class="title-row">
           <div class="status soon">Summer 2026</div>
           <div>
-            <a class="title-name" href="https://acbishkey.substack.com/s/halcyon-days-the-colossus">Halcyon Days: The City in the Sands <span>Book two</span></a>
-            <p class="title-desc">The crew makes landfall in a city built on buried things. Serializing free on Substack now, in print this summer.</p>
+            <div class="title-name">Halcyon Days: The City in the Sands <span>Book two</span></div>
+            <p class="title-desc">Save the world, get a parade, then fly into the empire that wants you dead before the confetti lands. The crew is fracturing and the enemy they buried is already marching again. Preorder available soon.</p>
           </div>
         </div>
 
@@ -132,7 +134,23 @@ footer a:hover{color:var(--brass);}
           <div class="status soon">Fall 2026</div>
           <div>
             <a class="title-name" href="https://acbishkey.substack.com/s/charlie-brunswick-and-the-encrypted">Charlie Brunswick and the Encrypted Room <span>A dream-world adventure for younger readers</span></a>
-            <p class="title-desc">A locked room, an encrypted door, and dreams that refuse to stay where you left them.</p>
+            <p class="title-desc">A misfit whose sleeping mind turns nightmares into puzzles solves his way into the Subconscious Control Agency, the secret service that guards the dreaming world. Now the agency wants to train him, and something far older wants to recruit him.</p>
+          </div>
+        </div>
+
+        <div class="title-row">
+          <div class="status soon">Planned 2027</div>
+          <div>
+            <a class="title-name" href="https://acbishkey.substack.com/s/otherwhile">Otherwhile <span>Literary time-slip</span></a>
+            <p class="title-desc">The Black Hound took everything Aoife loved. Her one lead is Oisín, a fisherman's son who knows nothing of monsters and whom the Hound wants enough to raise an army. When she finds him in the Drowned Isles, both their worlds begin to come apart.</p>
+          </div>
+        </div>
+
+        <div class="title-row">
+          <div class="status soon">Planned 2027</div>
+          <div>
+            <a class="title-name" href="https://acbishkey.substack.com/s/stella-casus">Stella Casus <span>A conspiracy thriller in three books</span></a>
+            <p class="title-desc">Austin Stella's family is the richest in human history, and she has never asked why. The night she slips her bodyguards, the answer detonates into gunfire, old money, and a legacy reaching back to the darkest chapter in human history. The Stellas are holding something over the world, and someone has decided to take it.</p>
           </div>
         </div>
 
@@ -141,22 +159,6 @@ footer a:hover{color:var(--brass);}
           <div>
             <div class="title-name">Occluded <span>An epic fantasy in nine books</span></div>
             <p class="title-desc">Power is a passenger. People are the vessels it rides. Four lives, four powers, one long unraveling.</p>
-          </div>
-        </div>
-
-        <div class="title-row">
-          <div class="status soon">Planned 2027</div>
-          <div>
-            <a class="title-name" href="https://acbishkey.substack.com/s/otherwhile">Otherwhile <span>Literary time-slip</span></a>
-            <p class="title-desc">Celtic myth and a fault line in time, told across more than one life.</p>
-          </div>
-        </div>
-
-        <div class="title-row">
-          <div class="status soon">Planned 2027</div>
-          <div>
-            <a class="title-name" href="https://acbishkey.substack.com/s/stella-casus">Stella Casus <span>A conspiracy thriller in three books</span></a>
-            <p class="title-desc">Some patterns only make sense from the inside. By the time you can trace the shape of it, you are already part of it.</p>
           </div>
         </div>
 
