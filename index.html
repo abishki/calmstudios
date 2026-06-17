@@ -1,0 +1,255 @@
+<!DOCTYPE html>
+<!--
+  CALM Studios — single-page site
+  TWO THINGS TO REPLACE before/after deploy (search for REPLACE):
+    1. Substack URL  -> currently https://YOURNAME.substack.com
+    2. Amazon URL    -> currently https://www.amazon.com/author/acbishkey
+  Book loglines are placeholders — tweak the copy to taste.
+-->
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>CALM Studios — Speculative fiction</title>
+<meta name="description" content="An independent press publishing the speculative fiction of AC Bishkey, from the skyship saga of Halcyon Days to dream-world adventures for younger readers.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,400..600;1,9..144,400..500&family=Spectral:wght@300;400;500;600&display=swap" rel="stylesheet">
+<style>
+  :root{
+    --ink:#0B1322;
+    --ink-2:#101B2E;
+    --panel:#13203501;
+    --brass:#C8A063;
+    --brass-bright:#E6C68A;
+    --parchment:#ECE4D6;
+    --muted:#929CB0;
+    --line:rgba(200,160,99,.22);
+    --maxw:1060px;
+  }
+  *{box-sizing:border-box;margin:0;padding:0}
+  html{scroll-behavior:smooth}
+  body{
+    background:var(--ink);
+    color:var(--parchment);
+    font-family:'Spectral',Georgia,serif;
+    font-weight:400;
+    line-height:1.6;
+    -webkit-font-smoothing:antialiased;
+    text-rendering:optimizeLegibility;
+  }
+  a{color:inherit;text-decoration:none}
+  .wrap{max-width:var(--maxw);margin:0 auto;padding:0 28px}
+
+  .eyebrow{
+    font-size:.74rem;font-weight:500;letter-spacing:.26em;
+    text-transform:uppercase;color:var(--brass);
+  }
+
+  /* ---------- HERO ---------- */
+  .hero{
+    position:relative;min-height:90vh;display:flex;align-items:center;
+    overflow:hidden;
+    background:
+      radial-gradient(130% 90% at 50% 122%, rgba(200,160,99,.30) 0%, rgba(200,160,99,.07) 34%, transparent 58%),
+      linear-gradient(180deg,#080F1B 0%,#0B1322 42%,#13213a 100%);
+  }
+  /* the horizon — the night sky meeting a brass altitude line (signature) */
+  .horizon{
+    position:absolute;left:0;right:0;bottom:21%;height:1px;
+    background:linear-gradient(90deg,transparent,var(--brass) 18%,var(--brass-bright) 50%,var(--brass) 82%,transparent);
+    box-shadow:0 0 22px 1px rgba(200,160,99,.45);opacity:.7;
+  }
+  .hero-inner{position:relative;z-index:2;padding:7rem 0 8rem;max-width:760px}
+  .hero h1{
+    font-family:'Fraunces',serif;font-weight:560;
+    font-size:clamp(3.4rem,9.5vw,6.4rem);line-height:.96;
+    letter-spacing:-.01em;margin:.5rem 0 1.2rem;
+  }
+  .hero h1 .amp{font-style:italic;font-weight:460;color:var(--brass-bright)}
+  .lede{font-size:clamp(1.12rem,2.3vw,1.42rem);color:var(--parchment);max-width:34ch}
+  .lede-2{font-size:1.02rem;color:var(--muted);margin-top:.55rem;max-width:46ch}
+  .cta-row{display:flex;flex-wrap:wrap;gap:14px;margin-top:2.4rem}
+  .btn{
+    font-family:'Spectral',serif;font-size:.96rem;font-weight:500;
+    letter-spacing:.01em;padding:.78rem 1.5rem;border-radius:2px;
+    transition:transform .18s ease,background .18s ease,border-color .18s ease;
+  }
+  .btn-primary{background:var(--brass);color:#1a1206}
+  .btn-primary:hover{background:var(--brass-bright);transform:translateY(-2px)}
+  .btn-ghost{border:1px solid var(--line);color:var(--parchment)}
+  .btn-ghost:hover{border-color:var(--brass);transform:translateY(-2px)}
+
+  /* ---------- SECTIONS ---------- */
+  .section{padding:6.5rem 0;border-top:1px solid rgba(200,160,99,.10)}
+  .section-head{font-family:'Fraunces',serif;font-weight:500;
+    font-size:clamp(1.9rem,4vw,2.6rem);letter-spacing:-.01em;margin:.7rem 0 0}
+  .intro p{font-size:1.18rem;color:var(--parchment);max-width:58ch;margin-top:1.4rem}
+  .intro em{color:var(--brass-bright);font-style:italic}
+
+  /* ---------- CATALOG ---------- */
+  .titles{margin-top:3rem;display:flex;flex-direction:column;gap:0}
+  .title-row{
+    display:grid;grid-template-columns:160px 1fr;gap:2rem;
+    padding:1.9rem 0;border-top:1px solid rgba(200,160,99,.12);align-items:start;
+  }
+  .title-row:last-child{border-bottom:1px solid rgba(200,160,99,.12)}
+  .status{font-size:.7rem;font-weight:500;letter-spacing:.16em;text-transform:uppercase;
+    color:var(--brass);padding-top:.45rem}
+  .status.soon{color:var(--muted)}
+  .title-name{font-family:'Fraunces',serif;font-size:1.5rem;font-weight:520;line-height:1.15}
+  .title-name span{display:block;font-size:.98rem;font-weight:400;color:var(--muted);
+    font-style:italic;margin-top:.1rem}
+  .title-desc{color:var(--parchment);opacity:.86;margin-top:.55rem;max-width:54ch}
+  @media(max-width:620px){
+    .title-row{grid-template-columns:1fr;gap:.55rem;padding:1.5rem 0}
+    .status{padding-top:0}
+  }
+
+  /* ---------- READ FREE ---------- */
+  .readfree{
+    background:
+      radial-gradient(120% 140% at 100% 0%, rgba(200,160,99,.10), transparent 55%),
+      var(--ink-2);
+    border-radius:4px;padding:3rem clamp(1.6rem,5vw,3.4rem);margin-top:1rem;
+    display:flex;flex-wrap:wrap;gap:1.6rem 3rem;align-items:center;justify-content:space-between;
+  }
+  .readfree h3{font-family:'Fraunces',serif;font-weight:520;font-size:clamp(1.5rem,3vw,2rem);
+    line-height:1.15;max-width:18ch}
+  .readfree p{color:var(--muted);margin-top:.7rem;max-width:40ch}
+
+  /* ---------- CONTACT / FOOTER ---------- */
+  .contact .line{font-family:'Fraunces',serif;font-size:clamp(1.6rem,3.6vw,2.3rem);
+    font-weight:500;margin-top:1.4rem;line-height:1.3}
+  .contact a.mail{color:var(--brass-bright);border-bottom:1px solid var(--line);
+    transition:border-color .18s ease}
+  .contact a.mail:hover{border-color:var(--brass-bright)}
+  footer{padding:3rem 0 4rem;border-top:1px solid rgba(200,160,99,.10);
+    display:flex;flex-wrap:wrap;gap:1rem;justify-content:space-between;
+    color:var(--muted);font-size:.9rem}
+  footer a:hover{color:var(--brass)}
+
+  :focus-visible{outline:2px solid var(--brass-bright);outline-offset:3px;border-radius:2px}
+
+  /* load-in */
+  .fade{opacity:0;transform:translateY(14px);animation:rise .9s cubic-bezier(.2,.7,.2,1) forwards}
+  .fade.d1{animation-delay:.08s}.fade.d2{animation-delay:.18s}.fade.d3{animation-delay:.30s}.fade.d4{animation-delay:.44s}
+  @keyframes rise{to{opacity:1;transform:none}}
+  @media(prefers-reduced-motion:reduce){
+    .fade{animation:none;opacity:1;transform:none}html{scroll-behavior:auto}
+  }
+</style>
+</head>
+<body>
+
+  <header class="hero">
+    <div class="horizon" aria-hidden="true"></div>
+    <div class="wrap">
+      <div class="hero-inner">
+        <p class="eyebrow fade">Independent speculative fiction</p>
+        <h1 class="fade d1">CALM <span class="amp">Studios</span></h1>
+        <p class="lede fade d2">The publishing home of author AC&nbsp;Bishkey.</p>
+        <p class="lede-2 fade d3">Skyships, dream-worlds, and the long way between.</p>
+        <div class="cta-row fade d4">
+          <!-- REPLACE Substack URL -->
+          <a class="btn btn-primary" href="https://YOURNAME.substack.com">Read free on Substack</a>
+          <!-- REPLACE Amazon URL -->
+          <a class="btn btn-ghost" href="https://www.amazon.com/author/acbishkey">Books on Amazon</a>
+        </div>
+      </div>
+    </div>
+  </header>
+
+  <main>
+    <section class="section intro">
+      <div class="wrap">
+        <p class="eyebrow">The studio</p>
+        <h2 class="section-head">A small press for big worlds.</h2>
+        <p>CALM Studios publishes the speculative fiction of <em>AC&nbsp;Bishkey</em> — from the skyship saga of <em>Halcyon Days</em> to dream-world adventures for younger readers. New work is serialized free as it's written, then collected into books.</p>
+      </div>
+    </section>
+
+    <section class="section">
+      <div class="wrap">
+        <p class="eyebrow">The catalog</p>
+        <h2 class="section-head">What we're publishing.</h2>
+
+        <div class="titles">
+          <div class="title-row">
+            <div class="status">Available now</div>
+            <div>
+              <div class="title-name">Halcyon Days: The Colossus <span>Book one of the skyship saga</span></div>
+              <p class="title-desc">A salvaged airship, a crew that doesn't agree on much, and a continent that would rather not be mapped. Second edition out now.</p>
+            </div>
+          </div>
+
+          <div class="title-row">
+            <div class="status">Summer 2026</div>
+            <div>
+              <div class="title-name">Halcyon Days: The City in the Sands <span>Book two</span></div>
+              <p class="title-desc">The crew makes landfall in a city built on buried things. Serializing free on Substack now, in print this summer.</p>
+            </div>
+          </div>
+
+          <div class="title-row">
+            <div class="status soon">Coming soon</div>
+            <div>
+              <div class="title-name">Charlie Brunswick and the Encrypted Room <span>A dream-world adventure for younger readers</span></div>
+              <p class="title-desc">A locked room, an encrypted door, and dreams that refuse to stay where you left them.</p>
+            </div>
+          </div>
+
+          <div class="title-row">
+            <div class="status soon">In the works</div>
+            <div>
+              <div class="title-name">Occluded <span>An epic fantasy in nine books</span></div>
+              <p class="title-desc">Power is a passenger. People are the vessels it rides. Four lives, four powers, one unraveling.</p>
+            </div>
+          </div>
+
+          <div class="title-row">
+            <div class="status soon">In the works</div>
+            <div>
+              <div class="title-name">Otherwhile <span>Literary time-slip</span></div>
+              <p class="title-desc">Celtic myth and a fault line in time, told across more than one life.</p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section class="section">
+      <div class="wrap">
+        <div class="readfree">
+          <div>
+            <h3>Read it as it's written.</h3>
+            <p>Halcyon Days serializes free — new chapters twice a week.</p>
+          </div>
+          <!-- REPLACE Substack URL -->
+          <a class="btn btn-primary" href="https://YOURNAME.substack.com">Follow on Substack</a>
+        </div>
+      </div>
+    </section>
+
+    <section class="section contact">
+      <div class="wrap">
+        <p class="eyebrow">Get in touch</p>
+        <p class="line">Rights, review copies, or just hello —<br><a class="mail" href="mailto:alexb@calmstudiosltd.com">alexb@calmstudiosltd.com</a></p>
+      </div>
+    </section>
+  </main>
+
+  <footer>
+    <div class="wrap" style="display:flex;flex-wrap:wrap;gap:1rem;justify-content:space-between;width:100%">
+      <span>CALM Studios · Northbrook, Illinois</span>
+      <span>
+        <!-- REPLACE Substack URL --><a href="https://YOURNAME.substack.com">Substack</a> ·
+        <!-- REPLACE Amazon URL --><a href="https://www.amazon.com/author/acbishkey">Amazon</a> ·
+        © <span id="yr"></span> CALM Studios
+      </span>
+    </div>
+  </footer>
+
+  <script>document.getElementById('yr').textContent=new Date().getFullYear();</script>
+</body>
+</html>
